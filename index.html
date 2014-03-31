@@ -20,7 +20,7 @@
           <ul>
             {{#each model}}
               <li>
-                {{#linkTo "note" this data-reveal-id="myModal" data-reveal=true}}
+                {{#linkTo "note" this}}
                   <h3>{{title}}</h3>
                 {{/linkTo}}
               </li>
@@ -28,11 +28,7 @@
           </ul>
         </div>
 
-        <div id="myModal" class="reveal-modal" data-reveal>
-          {{outlet}}
-          <a class="close-reveal-modal">&#215;</a>
-        </div>
-
+        {{outlet}}
       </div>
 
     </script>
