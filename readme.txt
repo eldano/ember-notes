@@ -18,18 +18,17 @@ Proyecto Pocket clone:
 	
 	*5- Vista para editar y crear
 
-
 	*4- Mostrar vista en modal
 
-	
+
+	*- Eliminar
+
 	
 	*- Mostrar contenido reducido en la vista de grilla
 
 	*- Abrir URL en otra pestaña
 
 	*- Poner formato markdown al contenido
-
-	*- Eliminar
 
 	*- Modelo de tags y temas
 
