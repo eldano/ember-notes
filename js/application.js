@@ -4,9 +4,14 @@ window.App = Ember.Application.create();
 
 App.mode = "local";//
 
-if(App.mode == "local") {
+if(App.mode == "fixture") {
 	window.App.Store = DS.Store.extend({
 		adapter: DS.FixtureAdapter.create()
+	});
+}
+else if(App.mode == "local") {
+	window.App.ApplicationAdapter = DS.LSAdapter.extend({
+		namespace: 'notes'
 	});
 }
 else {
