@@ -15,11 +15,13 @@ Proyecto Pocket clone:
 	1- lista con items (ul li)
 	2- cada item tiene un título y un contenido (h1 p)
 	3- cargar de modelos
-	4- Mostrar vista en modal
+	
+	*5- Vista para editar y crear
 
 
+	*4- Mostrar vista en modal
 
-	*- Vista para editar y crear
+	
 	
 	*- Mostrar contenido reducido en la vista de grilla
 

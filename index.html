@@ -21,6 +21,7 @@
       <div class="row">
         <div class="large-4 columns">
           <ul>
+            <li><a href="#" {{action createNote}}>+ New Note</a></li>
             {{#each model}}
               <li>
                 {{#linkTo "note" this}}
@@ -32,8 +33,9 @@
             {{/each}}
           </ul>
         </div>
-
-        {{outlet}}
+        <div class="large-8 columns">
+          {{outlet}}
+        </div>
       </div>
 
     </script>
@@ -41,6 +43,24 @@
     <script type="text/x-handlebars" data-template-name="note">
       <h2>{{title}}</h2>
       <p>{{body}}</p>
+      {{#linkTo "editNote" this}}
+        Edit
+      {{/linkTo}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="editNote">
+      <h2>Edit Note</h2>
+      <form {{action save on="submit"}}>
+        <label>
+          Title:
+          {{input type="text" value=title}}
+        </label><br>
+        <label>
+          Body:
+          {{textarea rows=9 value=body}}
+        </label><br>
+        <button type="submit">Done</button>
+      </form>
     </script>
 
     <!--
@@ -63,6 +83,9 @@
     -->
     <script src="libs/fastclick/1.0.0/fastclick.min.js"></script>
     <script src="libs/foundation/5.2.1/js/foundation.min.js"></script>
+
+
+    <script src="libs/localstorage_adapter/localstorage_adapter.js"></script>
 
     <script src="js/application.js"></script>
     <script src="js/router.js"></script>
