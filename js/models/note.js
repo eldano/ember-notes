@@ -7,7 +7,7 @@ App.Note.FIXTURES = [
   {
     id: 0,
     title: "Titulo uno",
-    body: "El contenido de la primera nota"
+    body: "El contenido de la **primera** nota con un link [click here](http://www.google.com)"
   },
   {
     id: 1,
@@ -17,7 +17,7 @@ App.Note.FIXTURES = [
   {
     id: 2,
     title: "Titulo tres",
-    body: "El contenido de la tercera nota"
+    body: "El contenido de la tercera nota es más largo que la nota convencional antes mostrada. Esto se debe a cambios en la estructura de las notas para conformar con las especificaciones de las notas más comunes. Si está desconforme por favor, comuníquese con nosotros y será atendido. Gracias."
   },
   {
     id: 3,

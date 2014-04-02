@@ -20,21 +20,19 @@ Proyecto Pocket clone:
 	6- Eliminar
 	7- Hacer el modal genérico para que sea más reutilizable
 	8- Redirigir al padre al cerrarlo y no a ApplicationRoute (se redirige a history -1)
+	9- Mostrar contenido reducido en la vista de grilla (Hecho con overflow hidden y fixed height)
+	10- Poner formato markdown al contenido
 
-	
-	*- Mostrar contenido reducido en la vista de grilla
+	*- Arreglar para que el cerrar no sea un history.go(-1) ya que da problemas al mezclarlo con transition
+	Ver como hacerlo yendo a la ruta del padre o algo así.
 
 	*- Abrir URL en otra pestaña
 
-	*- Poner formato markdown al contenido
-
-	*- Modelo de tags y temas
+	*- Agregar buscador
 
 	*- Completar modelos con tema y tags
 
-	*- Agregar buscador
-	
-	*- Arreglar para que el cerrar no sea un history.go(-1) ya que da problemas al mezclarlo con transition
+	*- Modelo de tags y temas
 
 * BACKEND *
 	1- Nodejs

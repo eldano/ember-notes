@@ -43,6 +43,7 @@
                 <div class="note">
                   {{#linkTo "note" this}}
                     <h3>{{title}}</h3>
+                    <div>{{markdown body}}</div>
                   {{/linkTo}}
                 </div>
               </li>
@@ -68,7 +69,7 @@
     <script type="text/x-handlebars" data-template-name="note">
       {{#modal-em}}
         <h2>{{title}}</h2>
-        <p>{{body}}</p>
+        <div>{{markdown body}}</div>
         {{#linkTo "editNote" this}}
           Edit
         {{/linkTo}}
@@ -114,8 +115,9 @@
     <script src="libs/fastclick/1.0.0/fastclick.min.js"></script>
     <script src="libs/foundation/5.2.1/js/foundation.min.js"></script>
 
-
     <script src="libs/localstorage_adapter/localstorage_adapter.js"></script>
+
+    <script src="libs/showdown.js"></script>
 
     <script src="js/application.js"></script>
     <script src="js/router.js"></script>
