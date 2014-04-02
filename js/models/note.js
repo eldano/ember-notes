@@ -18,5 +18,15 @@ App.Note.FIXTURES = [
     id: 2,
     title: "Titulo tres",
     body: "El contenido de la tercera nota"
+  },
+  {
+    id: 3,
+    title: "Titulo cuatro",
+    body: "El contenido de la cuarta nota"
+  },
+  {
+    id: 4,
+    title: "Titulo cinco",
+    body: "El contenido de la quinta nota"
   }
 ];

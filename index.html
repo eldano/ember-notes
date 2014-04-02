@@ -15,25 +15,44 @@
   </head>
 
   <body>
-
+    
     <script type="text/x-handlebars">
 
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="#">Notes</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+        </ul>
+
+        <section class="top-bar-section">
+          <!-- Left Nav Section -->
+          <ul class="left">
+            <li>
+              <a href="#" {{action createNote}}>+ New Note</a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+
       <div class="row">
-        <div class="large-4 columns">
-          <ul>
-            <li><a href="#" {{action createNote}}>+ New Note</a></li>
+        <div class="large-8 columns">
+          <ul class="small-block-grid-4">
             {{#each model}}
               <li>
-                {{#linkTo "note" this}}
-                  <h3>{{title}}</h3>
-                {{/linkTo}}
+                <div class="note">
+                  {{#linkTo "note" this}}
+                    <h3>{{title}}</h3>
+                  {{/linkTo}}
+                </div>
               </li>
             {{else}}
               No elements to show!
             {{/each}}
           </ul>
         </div>
-        <div class="large-8 columns">
+        <div class="large-4 columns">
           {{outlet}}
         </div>
       </div>
