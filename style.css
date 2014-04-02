@@ -1,5 +1,8 @@
 .note {
 	border: solid 1px black;
+	padding: 10px;
+	height: 200px;
+	overflow: hidden;
 }
 
 .visible {
@@ -7,3 +10,9 @@
 	display: block;
 	opacity: 1;
 }
+
+/* fix for Foundation blockgrid when used with ember (script metamorph tags) */
+.small-block-grid-4>li:nth-of-type(4n+1){padding-left:0rem;padding-right:1.40625rem}
+.small-block-grid-4>li:nth-of-type(4n+2){padding-left:0.46875rem;padding-right:0.9375rem}
+.small-block-grid-4>li:nth-of-type(4n+3){padding-left:0.9375rem;padding-right:0.46875rem}
+.small-block-grid-4>li:nth-of-type(4n){padding-left:1.40625rem;padding-right:0rem}
