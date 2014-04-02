@@ -1,3 +1,9 @@
 .note {
 	border: solid 1px black;
 }
+
+.visible {
+	visibility: visible;
+	display: block;
+	opacity: 1;
+}
