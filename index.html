@@ -17,7 +17,6 @@
   <body>
     
     <script type="text/x-handlebars">
-
       <nav class="top-bar" data-topbar>
         <ul class="title-area">
           <li class="name">
@@ -37,7 +36,7 @@
       </nav>
 
       <div class="row">
-        <div class="large-8 columns">
+        <div class="large-12 columns">
           <ul class="small-block-grid-4">
             {{#each model}}
               <li>
@@ -52,35 +51,42 @@
             {{/each}}
           </ul>
         </div>
-        <div class="large-4 columns">
-          {{outlet}}
-        </div>
       </div>
-
+      <div class="row">
+        {{outlet}}
+      </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="note">
-      <h2>{{title}}</h2>
-      <p>{{body}}</p>
-      {{#linkTo "editNote" this}}
-        Edit
-      {{/linkTo}}
-      <a href="#" {{action deleteNote}}>Eliminar</a>
+      <div class="reveal-modal-bg" style="display: block;" {{action "closeModal" on="click"}}></div>
+      <div id="firstModal" class="reveal-modal open" data-reveal="" style="visibility: visible; display: block; top: 248px; opacity: 1;">
+        <h2>{{title}}</h2>
+        <p>{{body}}</p>
+        {{#linkTo "editNote" this}}
+          Edit
+        {{/linkTo}}
+        <a href="#" {{action deleteNote}}>Eliminar</a>
+        {{#linkTo "application" class="close-reveal-modal"}}×{{/linkTo}}
+      </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="editNote">
-      <h2>Edit Note</h2>
-      <form {{action save on="submit"}}>
-        <label>
-          Title:
-          {{input type="text" value=title}}
-        </label><br>
-        <label>
-          Body:
-          {{textarea rows=9 value=body}}
-        </label><br>
-        <button type="submit">Done</button>
-      </form>
+      <div class="reveal-modal-bg" style="display: block;" {{action "closeModal" on="click"}}></div>
+      <div id="firstModal" class="reveal-modal open" data-reveal="" style="visibility: visible; display: block; top: 248px; opacity: 1;">
+        <h2>Edit Note</h2>
+        <form {{action save on="submit"}}>
+          <label>
+            Title:
+            {{input type="text" value=title}}
+          </label><br>
+          <label>
+            Body:
+            {{textarea rows=9 value=body}}
+          </label><br>
+          <button type="submit">Done</button>
+        </form>
+        {{#linkTo "note" this class="close-reveal-modal"}}×{{/linkTo}}
+      </div>
     </script>
 
     <!--

@@ -27,8 +27,11 @@ App.NoteRoute = Ember.Route.extend({
 		deleteNote: function() {
 			var note = this.modelFor('note');
 			note.deleteRecord();
-    		note.save();
-    		this.transitionTo('application');
+			note.save();
+			this.transitionTo('application');
+		},
+		closeModal: function() {
+			this.transitionTo('application');
 		}
 	}
 });
@@ -37,12 +40,15 @@ App.EditNoteRoute = Ember.Route.extend({
 	model: function(params) {
 		return this.store.find("note", params.note_id);
 	},
-
 	events: {
 		save: function() {
 			var note = this.modelFor('editNote');
 			note.save();
 			this.transitionTo('note', note)
+		},
+		closeModal: function() {
+			var note = this.modelFor('editNote');
+			this.transitionTo('note', note);
 		}
 	},
 });
