@@ -57,22 +57,27 @@
       </div>
     </script>
 
+    <script type="text/x-handlebars" id="components/modal-em">
+      <div class="reveal-modal-bg" style="display: block;" {{action "close" on="click"}}></div>
+      <div id="modal" class="reveal-modal visible">
+        {{yield}}
+        <a href="#" class="close-reveal-modal" {{action "close" on="click"}}>×</a>
+      </div>
+    </script>
+
     <script type="text/x-handlebars" data-template-name="note">
-      <div class="reveal-modal-bg" style="display: block;" {{action "closeModal" on="click"}}></div>
-      <div id="noteModal" class="reveal-modal visible">
+      {{#modal-em}}
         <h2>{{title}}</h2>
         <p>{{body}}</p>
         {{#linkTo "editNote" this}}
           Edit
         {{/linkTo}}
         <a href="#" {{action deleteNote}}>Eliminar</a>
-        <a href="#" class="close-reveal-modal" {{action "closeModal" on="click"}}>×</a>
-      </div>
+      {{/modal-em}}
     </script>
 
     <script type="text/x-handlebars" data-template-name="editNote">
-      <div class="reveal-modal-bg" style="display: block;" {{action "closeModal" on="click"}}></div>
-      <div id="editNoteModal" class="reveal-modal visible">
+      {{#modal-em}}
         <h2>Edit Note</h2>
         <form {{action save on="submit"}}>
           <label>
@@ -85,8 +90,7 @@
           </label><br>
           <button type="submit">Done</button>
         </form>
-        <a href="#" class="close-reveal-modal" {{action "closeModal" on="click"}}>×</a>
-      </div>
+      {{/modal-em}}
     </script>
 
     <!--

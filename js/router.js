@@ -30,9 +30,6 @@ App.NoteRoute = Ember.Route.extend({
 			note.save();
 			this.transitionTo('application');
 		},
-		closeModal: function() {
-			this.transitionTo('application');
-		}
 	}
 });
 
@@ -45,10 +42,12 @@ App.EditNoteRoute = Ember.Route.extend({
 			var note = this.modelFor('editNote');
 			note.save();
 			this.transitionTo('note', note)
-		},
-		closeModal: function() {
-			var note = this.modelFor('editNote');
-			this.transitionTo('note', note);
 		}
 	},
+});
+
+App.ModalEmComponent = Ember.Component.extend({
+  close: function() {
+  	window.history.go(-1);
+  }
 });

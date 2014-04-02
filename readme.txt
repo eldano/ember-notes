@@ -18,7 +18,9 @@ Proyecto Pocket clone:
 	4- Mostrar vista en modal
 	5- Vista para editar y crear
 	6- Eliminar
-	
+	7- Hacer el modal genérico para que sea más reutilizable
+	8- Redirigir al padre al cerrarlo y no a ApplicationRoute (se redirige a history -1)
+
 	
 	*- Mostrar contenido reducido en la vista de grilla
 
@@ -31,11 +33,8 @@ Proyecto Pocket clone:
 	*- Completar modelos con tema y tags
 
 	*- Agregar buscador
+	
+	*- Arreglar para que el cerrar no sea un history.go(-1) ya que da problemas al mezclarlo con transition
 
-	*- Hacer el modal genérico para que sea más reutilizable
-	*- Redirigir al padre al cerrarlo y no a ApplicationRoute
-
-	*- Cambiar backend a Rails
-
-
-* RAILS BACKEND *
+* BACKEND *
+	1- Nodejs
