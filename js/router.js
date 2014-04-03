@@ -1,6 +1,6 @@
 App.Router.map(function() {
-    this.resource("note", { path: "/:note_id" });
-    this.resource("editNote", { path: "/:note_id/edit" });
+	this.resource("note", { path: "/:note_id" });
+	this.resource("editNote", { path: "/:note_id/edit" });
 });
 
 App.ApplicationRoute = Ember.Route.extend({
@@ -17,6 +17,22 @@ App.ApplicationRoute = Ember.Route.extend({
 			this.transitionTo('editNote', note);
 		}
 	},
+});
+
+App.NoteController = Ember.ObjectController.extend({
+	actions: {
+		closeModal: function() {
+			this.transitionTo('application');
+		}
+	}
+});
+
+App.EditNoteController = Ember.ObjectController.extend({
+	actions: {
+		closeModal: function() {
+			this.transitionTo('note', this);
+		}
+	}
 });
 
 App.NoteRoute = Ember.Route.extend({
@@ -47,7 +63,9 @@ App.EditNoteRoute = Ember.Route.extend({
 });
 
 App.ModalEmComponent = Ember.Component.extend({
-  close: function() {
-  	window.history.go(-1);
-  }
+	actions: {
+		close: function() {
+			this.sendAction('close');
+		}
+	}
 });
