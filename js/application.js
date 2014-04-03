@@ -52,5 +52,7 @@ Ember.View.reopen({
 
 var showdown = new Showdown.converter();
 Ember.Handlebars.registerBoundHelper('markdown', function(input) {
-	return new Handlebars.SafeString(showdown.makeHtml(input));
+	input = Handlebars.Utils.escapeExpression(input)
+  	input = input.replace(/\n\r?/g, '<br>')
+  	return new Handlebars.SafeString(showdown.makeHtml(input));
 });
