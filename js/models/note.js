@@ -6,7 +6,7 @@ App.Note = DS.Model.extend({
 App.Note.FIXTURES = [
   {
     id: 0,
-    title: "Titulo uno",
+    title: "uno",
     body: "El contenido de la **primera** nota con un link [click here](http://www.google.com)"
   },
   {

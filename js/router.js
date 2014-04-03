@@ -17,13 +17,25 @@ App.ApplicationRoute = Ember.Route.extend({
 			});
 			note.save();
 			this.transitionTo('notes.edit', note);
-		}
-	}
+		},
+	},
+	queryParams: {
+		query: { refreshModel: true }
+	},
 });
 
 App.NotesRoute = Ember.Route.extend({
-	model: function() {
-		return this.store.find("note");
+	model: function(params) {
+		var query = params.query
+		if (query && query != "null") {
+			var regex = new RegExp(query, 'i');
+			this.store.find("note");
+			return this.store.filter("note", function(item) {
+				return item.get('title').match(regex);
+			});
+		} else {
+			return this.store.find("note");
+		}
 	},
 });
 
@@ -32,6 +44,32 @@ App.NoteIndexRoute = Ember.Route.extend({
 		closeModal: function() {
 			this.transitionTo('notes');
 		},
+	}
+});
+
+App.NotesController = Ember.ArrayController.extend({
+	queryParams: ['query'],
+	query: null,
+	queryField: Ember.computed.oneWay('query'),
+
+	filteredNotes: function() {
+		console.log("filtering notes...EN CONTROLLER!");
+		var query = this.get('query');
+		var notes = this.get('model');
+		if (query) {
+			var regex = new RegExp(query, 'i');
+			return this.store.filter("note", function(item) {
+				return item.get('title').match(regex);
+			});
+		} else {
+			return notes;
+		}
+	}.property('query', 'model'),
+
+	actions: {
+		search: function() {
+			this.set('query', this.get('queryField'));
+		}
 	}
 });
 

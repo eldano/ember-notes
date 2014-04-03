@@ -1,8 +1,8 @@
-window.App = Ember.Application.create();
+window.App = Ember.Application.create({
+	LOG_TRANSITIONS: true,
+});
 
-//App.ApplicationAdapter = DS.FixtureAdapter.extend();
-
-App.mode = "fixture";//
+App.mode = "fixture";
 
 if(App.mode == "fixture") {
 	window.App.Store = DS.Store.extend({
