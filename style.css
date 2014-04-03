@@ -7,7 +7,7 @@
 
 .visible {
 	visibility: visible;
-	display: block;
+	display: none;
 	opacity: 1;
 }
 

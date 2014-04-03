@@ -7,7 +7,10 @@ App.ApplicationRoute = Ember.Route.extend({
 	model: function(params) {
 		return this.store.find("note");
 	},
-	events: {
+	actions: {
+		closeModal: function() {
+			this.transitionTo('application');
+		},
 		createNote: function() {
 			var note = this.store.createRecord('note', {
 				title: "title",
@@ -16,22 +19,6 @@ App.ApplicationRoute = Ember.Route.extend({
 			note.save();
 			this.transitionTo('editNote', note);
 		}
-	},
-});
-
-App.NoteController = Ember.ObjectController.extend({
-	actions: {
-		closeModal: function() {
-			this.transitionTo('application');
-		}
-	}
-});
-
-App.EditNoteController = Ember.ObjectController.extend({
-	actions: {
-		closeModal: function() {
-			this.transitionTo('note', this);
-		}
 	}
 });
 
@@ -39,7 +26,10 @@ App.NoteRoute = Ember.Route.extend({
 	model: function(params) {
 		return this.store.find("note", params.note_id);
 	},
-	events: {
+	actions: {
+		closeModal: function() {
+			this.transitionTo('application');
+		},
 		deleteNote: function() {
 			var note = this.modelFor('note');
 			note.deleteRecord();
@@ -53,13 +43,16 @@ App.EditNoteRoute = Ember.Route.extend({
 	model: function(params) {
 		return this.store.find("note", params.note_id);
 	},
-	events: {
+	actions: {
+		closeModal: function() {
+			this.transitionTo('note', this.modelFor('editNote'));
+		},
 		save: function() {
 			var note = this.modelFor('editNote');
 			note.save();
 			this.transitionTo('note', note)
 		}
-	},
+	}
 });
 
 App.ModalEmComponent = Ember.Component.extend({
@@ -67,5 +60,17 @@ App.ModalEmComponent = Ember.Component.extend({
 		close: function() {
 			this.sendAction('close');
 		}
-	}
+	},
+	animateOpenModal: function() {
+		Ember.run.next(this, this.$("#modal").slideDown());
+	}.on('didInsertElement'),
+	animateCloseModal: function() {
+		var clone = this.$("#modal").clone();
+		clone.appendTo("body");
+		clone.slideUp({
+			complete: function() {
+				this.remove();
+			}
+		});
+	}.on('willDestroyElement'),
 });
