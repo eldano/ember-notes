@@ -20,7 +20,7 @@
       <nav class="top-bar" data-topbar>
         <ul class="title-area">
           <li class="name">
-            <h1><a href="#">Notes</a></h1>
+            <h1>{{#linkTo "notes"}}Notes{{/linkTo}}</h1>
           </li>
           <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
         </ul>
@@ -35,6 +35,10 @@
         </section>
       </nav>
 
+      {{outlet}}
+    </script>
+
+    <script type="text/x-handlebars" id="notes">
       <div class="row">
         <div class="large-12 columns">
           <ul class="small-block-grid-4">
@@ -70,14 +74,14 @@
       {{#modal-em close="closeModal"}}
         <h2>{{title}}</h2>
         <div>{{markdown body}}</div>
-        {{#linkTo "editNote" this}}
+        {{#linkTo "notes.edit" this}}
           Edit
         {{/linkTo}}
         <a href="#" {{action deleteNote}}>Eliminar</a>
       {{/modal-em}}
     </script>
 
-    <script type="text/x-handlebars" data-template-name="editNote">
+    <script type="text/x-handlebars" data-template-name="notes/edit">
       {{#modal-em close="closeModal"}}
         <h2>Edit Note</h2>
         <form {{action save on="submit"}}>
