@@ -5,6 +5,14 @@
 	overflow: hidden;
 }
 
+.note a {
+	color: #666;
+}
+
+.note a[target="_blank"] {
+	color: #0078a0;
+}
+
 .visible {
 	visibility: visible;
 	display: none;

@@ -25,8 +25,7 @@ Proyecto Pocket clone:
 	*Ver como hacerlo yendo a la ruta del padre o algo así.
 	12- Agregar ruta para notes.
 	13- Abrir URL en otra pestaña
-
-	*- Agregar buscador
+	14- Agregar buscador
 
 	*- Completar modelos con tema y hashtags
 
