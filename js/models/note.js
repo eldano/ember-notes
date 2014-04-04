@@ -12,7 +12,7 @@ App.Note.FIXTURES = [
   {
     id: 1,
     title: "Titulo dos",
-    body: "El contenido de la segunda nota"
+    body: "El contenido de la segunda nota con hashtags #enelmedio y #alfinal"
   },
   {
     id: 2,
