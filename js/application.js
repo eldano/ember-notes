@@ -2,7 +2,7 @@ window.App = Ember.Application.create({
 	LOG_TRANSITIONS: true,
 });
 
-App.mode = "fixture";
+App.mode = "local";
 
 if(App.mode == "fixture") {
 	window.App.Store = DS.Store.extend({
@@ -14,19 +14,24 @@ else if(App.mode == "local") {
 		namespace: 'notes'
 	});
 }
-else {
+else if(App.mode == "rails") {
+	window.App.ApplicationAdapter = DS.RESTAdapter.extend({
+		host: 'http://localhost:3000',
+	});
+}
+else if(App.mode == "node") {
 	window.App.ApplicationSerializer = DS.RESTSerializer.extend({
 	  primaryKey: "_id"
 	});
 	window.App.ApplicationAdapter = DS.RESTAdapter.extend({
-	  host: 'http://192.168.1.107:4242',
-	  namespace: 'api',
-	  ajax: function(url, method, hash) {
-	    hash = hash || {}; // hash may be undefined
-	    hash.crossDomain = true;
-	    //hash.xhrFields = {withCredentials: true};
-	    return this._super(url, method, hash);
-	  }
+		host: 'http://192.168.1.107:4242',
+		namespace: 'api',
+		ajax: function(url, method, hash) {
+			hash = hash || {}; // hash may be undefined
+			hash.crossDomain = true;
+			//hash.xhrFields = {withCredentials: true};
+			return this._super(url, method, hash);
+		}
 	});
 }
 
@@ -56,9 +61,9 @@ Ember.Handlebars.registerBoundHelper('markdown', function(input) {
   	input = input.replace(/\n\r?/g, '<br>');
 
   	//hashtags
-  	input = input.replace(/#(\w)+/g, function(c) {
-  		return "[" + c + "](notes?query=" + c + ")";
-  	});
+  	//input = input.replace(/#(\w)+/g, function(c) {
+  	//	return "[" + c + "](notes?query=" + c + ")";
+  	//});
 
   	return new Handlebars.SafeString(showdown.makeHtml(input));
 });

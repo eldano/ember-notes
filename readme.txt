@@ -27,13 +27,17 @@ Proyecto Pocket clone:
 	13- Abrir URL en otra pestaña
 	14- Agregar buscador
 
-	*- Completar modelos con tema y hashtags
+	*- Hashtags
+	  *- Parse and show as link (no funciona bien en la viste /notes, si funciona en /notes/:note_id)
+	  *- 
+
+	*- Completar modelos con tema
 
 	*- Edits next to title/body (trello)
 
 	*- Cancel edit
 
-	*- Modelo de hashtags y temas
+	*- Modelo de temas
 
 * BACKEND *
 	1- Nodejs
