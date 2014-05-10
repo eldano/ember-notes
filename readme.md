@@ -10,7 +10,7 @@ Proyecto Pocket clone:
 	· Markdown para las notas
 	· Foundation
 
-#
+* TASKS *
 	1- lista con items (ul li)
 	2- cada item tiene un título y un contenido (h1 p)
 	3- cargar de modelos
@@ -22,7 +22,7 @@ Proyecto Pocket clone:
 	9- Mostrar contenido reducido en la vista de grilla (Hecho con overflow hidden y fixed height)
 	10- Poner formato markdown al contenido
 	11- Arreglar para que el cerrar no sea un history.go(-1) ya que da problemas al mezclarlo con transition
-	*Ver como hacerlo yendo a la ruta del padre o algo así.
+	*Ver como hacerlo yendo a la ruta del padre o similar.
 	12- Agregar ruta para notes.
 	13- Abrir URL en otra pestaña
 	14- Agregar buscador
@@ -39,5 +39,6 @@ Proyecto Pocket clone:
 
 	*- Modelo de temas
 
-* BACKEND *
+* BACKENDS *
 	1- Nodejs
+	2- Ruby
