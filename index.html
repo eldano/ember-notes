@@ -39,7 +39,7 @@
       {{outlet}}
     </script>
 
-    <script type="text/x-handlebars" id="notes">
+    <script type="text/x-handlebars" data-template-name="notes">
       <div class="row">
         <div class="large-6 columns large-centered">
 
@@ -77,7 +77,7 @@
       </div>
     </script>
 
-    <script type="text/x-handlebars" id="components/modal-em">
+    <script type="text/x-handlebars" data-template-name="components/modal-em">
       <div class="reveal-modal-bg" style="display: block;" {{action "close" on="click"}}></div>
       <div id="modal" class="reveal-modal visible">
         {{yield}}

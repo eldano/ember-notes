@@ -108,11 +108,12 @@ App.ModalEmComponent = Ember.Component.extend({
 	}.on('didInsertElement'),
 	animateCloseModal: function() {
 		var clone = this.$("#modal").clone();
-		clone.appendTo("body");
-		clone.slideUp({
-			complete: function() {
-				this.remove();
-			}
-		});
+		clone
+			.appendTo("body")
+			.slideUp({
+				complete: function() {
+					this.remove();
+				}
+			});
 	}.on('willDestroyElement'),
 });
